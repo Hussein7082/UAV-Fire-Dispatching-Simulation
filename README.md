@@ -2,9 +2,39 @@
 
 The script runs the single-round and paired randomized experiments for the study “Risk-Aware Robust UAV Dispatching for Early Fire Emergency Response under Energy and Delay Constraints.”
 
+## Download and extract the data
+
+Download the repository using **Code → Download ZIP** on GitHub, then extract the downloaded repository ZIP. You can also clone the repository with Git.
+
+[Public repository](https://github.com/Hussein7082/UAV-Fire-Dispatching-Simulation)
+
+The five data archives in the repository must be extracted before running the simulation or verification scripts. Open a terminal in the folder containing this README and the Python scripts, then run:
+
+```sh
+python -m zipfile -e data.zip .
+python -m zipfile -e original_results.zip .
+python -m zipfile -e reference_results.zip .
+python -m zipfile -e runtime_results.zip .
+python -m zipfile -e sequential_reference.zip .
+```
+
+Each archive already contains its named folder. Extract it into the repository root so that, for example, the incident file is at `data/preprocessed_fire_sample.csv`. Avoid creating an extra nested `data/data/` folder.
+
+| Archive | Extracted folder | Contents |
+| --- | --- | --- |
+| `data.zip` | `data/` | Incident sample and proxy UAV base coordinates |
+| `original_results.zip` | `original_results/` | Archived outputs, including historical sequential comparisons |
+| `reference_results.zip` | `reference_results/` | Paired dispatch results, configuration and saved round inputs |
+| `runtime_results.zip` | `runtime_results/` | Runtime measurements, instances, configuration and benchmark outputs |
+| `sequential_reference.zip` | `sequential_reference/` | Trained DQN checkpoint, paired evaluations and training diagnostics |
+
+The corrected sequential results used in Figures 8 and 9 are in `sequential_reference/`. The historical sequential comparison files in `original_results/` are retained for traceability.
+
+The manuscript submission ZIP already contains these extracted folders inside `repository/`. When using that package, proceed directly to the installation and run commands below.
+
 ## Run the experiments
 
-Run the commands below from the `repository/` directory when using the manuscript ZIP. For a standalone repository, copy the contents of this folder to its root and run the commands there. The reference replay was checked with Python 3.12.14 and the pinned versions in `requirements.txt`.
+Run the commands below from the GitHub repository root, or from the `repository/` directory when using the manuscript submission ZIP. The reference replay was checked with Python 3.12.14 and the pinned versions in `requirements.txt`.
 
 ```sh
 python -m pip install -r requirements.txt
